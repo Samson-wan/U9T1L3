@@ -14,6 +14,13 @@ public class Truck extends Vehicle
     return hasTrailer;
   }
 
+  public double calculateTollPrice(){
+    if(isHasTrailer()){
+      return getTollFee() * axles * 2;
+    }
+    return getTollFee() * axles;
+  }
+
   public boolean validateLicensePlate(){
     if(!isHasTrailer()) {
       return true;
@@ -25,10 +32,8 @@ public class Truck extends Vehicle
   }
 
 
-  public void printTruck(){
-    System.out.println("License Place: " +getLicensePlate());
-    System.out.println("Toll fee: " + getTollFee());
-    System.out.println("Passengers: " + getPassengers());
+  public void printInfo(){
+    super.printInfo();
     System.out.println("Number of axles: " + axles);
     System.out.println("Has trailer? "+ hasTrailer);
   }

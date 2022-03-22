@@ -33,11 +33,16 @@ public class Car extends Vehicle
     }
   }
 
+  public double calculateTollPrice(){
+    if(getPassengers() > 4){
+      return getTollFee() * 4;
+    }
+    return getTollFee() * getPassengers();
+  }
 
-  public void printCar(){
-    System.out.println("License Place: " +getLicensePlate());
-    System.out.println("Toll fee: " + getTollFee());
-    System.out.println("Passengers: " + getPassengers());
+
+  public void printInfo(){
+    super.printInfo();
     System.out.println("Electric? " + electric);
     System.out.println("Discount applied? "+ discountApplied);
   }
